@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const basePath = '/portfolio';
+const basePath = '';
 
 const nextConfig = {
   output: 'export',
@@ -7,7 +7,7 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: basePath,
-  assetPrefix: `${basePath}/`,
+  assetPrefix: basePath ? `${basePath}/` : '',
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },

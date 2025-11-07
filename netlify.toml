@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+# Redirección para manejar rutas del SPA (Next.js estático)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+

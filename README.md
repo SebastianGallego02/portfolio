@@ -1,6 +1,4 @@
-# Hollow Knight Portfolio
-
-Este es un proyecto de [Next.js](https://nextjs.org/) con React y TypeScript, inspirado en el estilo visual de Hollow Knight.
+##Este es un proyecto de [Next.js](https://nextjs.org/) con React y TypeScript, inspirado en el estilo visual de Hollow Knight.
 
 ## Tecnologías Utilizadas
 

@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Hollow Knight Portfolio',
+  title: 'Portfolio Sebastian Gallego Loaiza',
   description: 'Portfolio inspirado en Hollow Knight',
 }
 

@@ -24,7 +24,7 @@ export function CardFlip({ isFlipped, frontContent, backContent }: CardFlipProps
             exit={{ opacity: 0, y: -50 }}
             transition={{
               duration: 0.7,
-              ease: [0.25, 0.46, 0.45, 0.94], // Easing suave similar a Hollow Knight
+              ease: [0.25, 0.46, 0.45, 0.94],
             }}
             className="absolute inset-0 w-full min-h-screen overflow-hidden"
           >
@@ -38,7 +38,7 @@ export function CardFlip({ isFlipped, frontContent, backContent }: CardFlipProps
             exit={{ opacity: 0, y: -50 }}
             transition={{
               duration: 0.7,
-              ease: [0.25, 0.46, 0.45, 0.94], // Easing suave similar a Hollow Knight
+              ease: [0.25, 0.46, 0.45, 0.94],
             }}
             className="absolute inset-0 w-full min-h-screen"
           >

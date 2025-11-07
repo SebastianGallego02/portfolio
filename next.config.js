@@ -1,14 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   images: {
-    domains: [],
+    unoptimized: true,
   },
-  typescript: {
-    ignoreBuildErrors: false,
-  },
-  eslint: {
-    ignoreDuringBuilds: false,
-  },
-}
+  basePath: '/portfolio',
+  assetPrefix: '/portfolio/',
+};
 
-module.exports = nextConfig
+export default nextConfig;

@@ -64,7 +64,7 @@ export function Projects({ onBack }: ProjectsProps) {
       description:
         "A simple task manager with a modern UI and a clean design.",
       tags: ["React", "TypeScript", "Tailwind"],
-      image: "/images/Task Manager.png",
+      image: "/images/Task%20Manager.png",
       demoUrl: "#",
       codeUrl: "https://github.com/SebastianGallego02/Notes_app",
     },
@@ -73,7 +73,7 @@ export function Projects({ onBack }: ProjectsProps) {
       description:
         "A program that simulates the functioning of a computer at a low level.",
       tags: ["React", "TypeScript", "Tailwind"],
-      image: "/images/Computer simulator.png",
+      image: "/images/Computer%20simulator.png",
       demoUrl: "https://computersimulator.netlify.app/",
       codeUrl: "#",
     },

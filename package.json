@@ -63,8 +63,8 @@
     },
     "scripts": {
         "dev": "next dev",
-        "build": "next build && next export",
-        "deploy": "gh-pages -d out",
+        "build": "next build",
+        "deploy": "npm run build && gh-pages -d out",
         "start": "next start",
         "lint": "next lint"
     }

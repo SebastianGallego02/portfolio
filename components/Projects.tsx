@@ -125,8 +125,6 @@ export function Projects({ onBack }: ProjectsProps) {
       <BackButton onBack={onBack} />
       
       {/* Ornamentos góticos en las 4 esquinas */}
-      <GothicOrnament position="top-left" size="xlarge" className="opacity-90" />
-      <GothicOrnament position="top-right" size="xlarge" className="opacity-90" />
       <GothicOrnament position="bottom-left" size="xlarge" className="opacity-90" />
       <GothicOrnament position="bottom-right" size="xlarge" className="opacity-90" />
       <div className="max-w-7xl mx-auto relative z-10">

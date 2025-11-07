@@ -43,14 +43,6 @@ export function Contact({ onBack }: ContactProps) {
       <BackButton onBack={onBack} />
       
       {/* Ornamentos góticos en las 4 esquinas */}
-      <GothicOrnament 
-        position="top-left" 
-        size="xlarge" 
-        className="opacity-90" 
-        offsetTop={70} 
-        offsetLeft={50}
-      />
-      <GothicOrnament position="top-right" size="xlarge" className="opacity-90" />
       <GothicOrnament position="bottom-left" size="xlarge" className="opacity-90" />
       <GothicOrnament position="bottom-right" size="xlarge" className="opacity-90" />
 

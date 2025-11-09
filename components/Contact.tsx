@@ -2,8 +2,9 @@
 
 import { motion } from "motion/react";
 import { useRef, useState } from "react";
-import { Mail, Github, Linkedin, Twitter, Send } from "lucide-react";
+import { Mail, Github, Linkedin, Twitter, Send, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import emailjs from '@emailjs/browser';
 import { GothicOrnament } from "./GothicOrnament";
 import { BackButton } from "./BackButton";
 import { FloatingParticles } from "./FloatingParticles";
@@ -15,9 +16,10 @@ interface ContactProps {
 export function Contact({ onBack }: ContactProps) {
   const ref = useRef(null);
   const isInView = true;
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    from_name: "",
+    from_email: "",
     message: "",
   });
 
@@ -27,10 +29,37 @@ export function Contact({ onBack }: ContactProps) {
     { icon: <Mail size={24} />, href: "mailto:sebasglha@gmail.com", label: "sebasglha@gmail.com" },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent! I'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
+    setIsLoading(true);
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: formData.from_name,
+          from_email: formData.from_email,
+          message: formData.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      toast.success("Message sent! I'll get back to you soon.", {
+        description: "Thanks for reaching out!",
+        duration: 5000,
+      });
+      
+      setFormData({ from_name: "", from_email: "", message: "" });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast.error("Failed to send message", {
+        description: "Please try again or contact me directly at sebasglha@gmail.com",
+        duration: 5000,
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -129,36 +158,41 @@ export function Contact({ onBack }: ContactProps) {
             >
               <GothicOrnament position="top-left" className="opacity-20" />
               <GothicOrnament position="bottom-right" className="opacity-20" />
+              
               <div>
-                <label htmlFor="name" className="block text-gray-300 mb-2">
+                <label htmlFor="from_name" className="block text-gray-300 mb-2">
                   Name
                 </label>
                 <input
-                  id="name"
+                  id="from_name"
+                  name="from_name"
                   type="text"
-                  value={formData.name}
+                  value={formData.from_name}
                   onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
+                    setFormData({ ...formData, from_name: e.target.value })
                   }
                   required
-                  className="w-full px-4 py-3 bg-[#0a0a0f] border border-purple-500/20 rounded-lg text-gray-100 focus:outline-none focus:border-purple-500 transition-colors"
+                  disabled={isLoading}
+                  className="w-full px-4 py-3 bg-[#0a0a0f] border border-purple-500/20 rounded-lg text-gray-100 focus:outline-none focus:border-purple-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-gray-300 mb-2">
+                <label htmlFor="from_email" className="block text-gray-300 mb-2">
                   Email
                 </label>
                 <input
-                  id="email"
+                  id="from_email"
+                  name="from_email"
                   type="email"
-                  value={formData.email}
+                  value={formData.from_email}
                   onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
+                    setFormData({ ...formData, from_email: e.target.value })
                   }
                   required
-                  className="w-full px-4 py-3 bg-[#0a0a0f] border border-purple-500/20 rounded-lg text-gray-100 focus:outline-none focus:border-purple-500 transition-colors"
+                  disabled={isLoading}
+                  className="w-full px-4 py-3 bg-[#0a0a0f] border border-purple-500/20 rounded-lg text-gray-100 focus:outline-none focus:border-purple-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -169,26 +203,38 @@ export function Contact({ onBack }: ContactProps) {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   value={formData.message}
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
                   required
+                  disabled={isLoading}
                   rows={5}
-                  className="w-full px-4 py-3 bg-[#0a0a0f] border border-purple-500/20 rounded-lg text-gray-100 focus:outline-none focus:border-purple-500 transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-[#0a0a0f] border border-purple-500/20 rounded-lg text-gray-100 focus:outline-none focus:border-purple-500 transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Tell me about your project..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-colors shadow-lg shadow-purple-500/20 flex items-center justify-center gap-2 group"
+                disabled={isLoading}
+                className="w-full px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-colors shadow-lg shadow-purple-500/20 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-purple-500"
               >
-                <span>Send Message</span>
-                <Send
-                  size={18}
-                  className="group-hover:translate-x-1 transition-transform"
-                />
+                {isLoading ? (
+                  <>
+                    <Loader2 size={18} className="animate-spin" />
+                    <span>Sending...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Send Message</span>
+                    <Send
+                      size={18}
+                      className="group-hover:translate-x-1 transition-transform"
+                    />
+                  </>
+                )}
               </button>
             </form>
           </motion.div>

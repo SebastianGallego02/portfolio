@@ -14,6 +14,7 @@ export function Hero({ onSectionSelect }: HeroProps) {
     { name: "View Projects", section: "projects", primary: true },
     { name: "About Me", section: "about" },
     { name: "My Skills", section: "skills" },
+    { name: "My Journey", section: "journey" },
     { name: "Get In Touch", section: "contact" },
   ];
 

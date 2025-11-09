@@ -15,6 +15,7 @@ export function Navigation({ onSectionSelect }: NavigationProps) {
     { name: "About", section: "about" },
     { name: "Projects", section: "projects" },
     { name: "Skills", section: "skills" },
+    { name: "Journey", section: "journey" },
     { name: "Contact", section: "contact" },
   ];
 

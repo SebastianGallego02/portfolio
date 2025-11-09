@@ -7,6 +7,7 @@ import { About } from "@/components/About";
 import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
 import { Contact } from "@/components/Contact";
+import { Journey } from "@/components/Journey";
 import { CardFlip } from "@/components/CardFlip";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -29,6 +30,8 @@ export default function Home() {
         return <About onBack={handleBack} />;
       case "skills":
         return <Skills onBack={handleBack} />;
+      case "journey":
+        return <Journey onBack={handleBack} />;
       case "contact":
         return <Contact onBack={handleBack} />;
       default:

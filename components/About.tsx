@@ -72,7 +72,7 @@ export function About({ onBack }: AboutProps) {
               <GothicOrnament position="top-left" />
               <GothicOrnament position="bottom-right" />
               <ImageWithFallback
-                src="/images/sg.jpg"
+                src="/images/yo.jpg"
                 alt="Sebastian Gallego Loaiza"
                 className="w-full h-auto rounded-lg"
               />

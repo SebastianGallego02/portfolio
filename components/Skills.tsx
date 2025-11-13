@@ -86,7 +86,7 @@ export function Skills({ onBack }: SkillsProps) {
 
         <div className="relative bg-gradient-to-br from-purple-950/20 to-transparent border border-purple-500/20 rounded-lg p-8 md:p-12">
           <GothicOrnament position="top-left" />
-          <GothicOrnament position="top-right" />
+          <GothicOrnament position="top-right" className="rotate-45"/>
           <GothicOrnament position="bottom-left" />
           <GothicOrnament position="bottom-right" />
 

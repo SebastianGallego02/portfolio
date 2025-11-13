@@ -30,13 +30,13 @@ export function Hero({ onSectionSelect }: HeroProps) {
       <FloatingParticles />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-4 py-16 max-w-4xl mx-auto">
         {/* Title with ornaments */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="mb-16"
+          className="mb-2 sm:mb-16"
         >
           {/* Top ornament */}
           <motion.div
@@ -53,7 +53,7 @@ export function Hero({ onSectionSelect }: HeroProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.7 }}
-            className="text-6xl md:text-8xl tracking-wider mb-4"
+            className="text-4xl md:text-6xl tracking-wider mb-4"
             style={{
               fontFamily: "serif",
               letterSpacing: "0.1em",
@@ -62,6 +62,7 @@ export function Hero({ onSectionSelect }: HeroProps) {
           >
             <span className="text-gray-100">Sebastian Gallego Loaiza</span>
           </motion.h1>
+            <div className="text-gray-100 text-xl sm:text-2xl">Fullstack Software Developer</div>
 
           {/* Bottom ornament */}
           <motion.div

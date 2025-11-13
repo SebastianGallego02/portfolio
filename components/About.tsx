@@ -44,8 +44,6 @@ export function About({ onBack }: AboutProps) {
       <BackButton onBack={onBack} />
       
       {/* Ornamentos góticos en las 4 esquinas */}
-      <GothicOrnament position="top-left" size="xlarge" className="opacity-90" />
-      <GothicOrnament position="top-right" size="xlarge" className="opacity-90" />
       <GothicOrnament position="bottom-left" size="xlarge" className="opacity-90" />
       <GothicOrnament position="bottom-right" size="xlarge" className="opacity-90" />
       <div className="max-w-6xl mx-auto relative z-10">
@@ -114,7 +112,7 @@ export function About({ onBack }: AboutProps) {
               transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
               className="bg-gradient-to-br from-purple-950/20 to-transparent border border-purple-500/20 rounded-lg p-6 hover:border-purple-500/40 transition-colors group relative"
             >
-              <GothicOrnament position="top-right" className="opacity-20" />
+              <GothicOrnament position="top-right" className="opacity-20 mt-4" />
               <div className="text-purple-400 mb-4 group-hover:scale-110 transition-transform">
                 {feature.icon}
               </div>
